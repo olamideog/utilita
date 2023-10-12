@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Bill extends Model
+class BillItem extends Model
 {
     use HasFactory;
 
@@ -14,7 +14,7 @@ class Bill extends Model
      *
      * @var string
      */
-    protected $table = 'bills';
+    protected $table = 'bill_items';
 
     /**
      * The attributes that are mass assignable.
@@ -22,9 +22,9 @@ class Bill extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'meter_id',
-        'usage',
-        'total',
+        'bill_id',
+        'meter_reading_id',
+        'amount',
         'created_at',
         'updated_at',
     ];
@@ -38,13 +38,13 @@ class Bill extends Model
         'status' => PaymentStatus::class,
     ];
 
-    public function meter()
+    public function bill()
     {
-        return $this->hasOne(Meter::class);
+        return $this->belongsTo(Bill::class);
     }
 
-    public function readings()
+    public function reading()
     {
-        return $this->hasMany(BillItem::class);
+        return $this->belongsTo(MeterReading::class);
     }
 }

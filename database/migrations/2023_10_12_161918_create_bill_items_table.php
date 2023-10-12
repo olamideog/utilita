@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bills', function (Blueprint $table) {
+        Schema::create('bill_items', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('meter_id');
-            $table->decimal('usage', 10, 2);
-            $table->decimal('total', 10, 2);
-            $table->tinyInteger('status')->default(0);
+            $table->bigInteger('bill_id');
+            $table->bigInteger('meter_reading_id');
+            $table->decimal('amount', 10, 2);
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bills');
+        Schema::dropIfExists('bill_items');
     }
 };

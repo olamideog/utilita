@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\ReconciliationStatus;
 use App\Http\Requests\CreateMeterReadingRequest;
 use App\Http\Requests\CreateMeterRequest;
 use App\Http\Resources\EmptyResource;
@@ -27,11 +28,11 @@ class CreateMeterReadingController extends Controller
             return new EmptyResource(new EmptyModel('Invalid Data', 'READING_NOT_ACCEPTED', Response::HTTP_NOT_ACCEPTABLE));
         }
 
-
         $reading = new MeterReading();
         $reading['meter_id'] = $meter->id;
         $reading['reading'] = $actualReading;
         $reading['read_at'] = $request->read_at;
+        $reading['status'] = ReconciliationStatus::DEFAULT->value;
         $reading->save();
 
         return new MeterResource($meter);
