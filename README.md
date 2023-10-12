@@ -11,5 +11,5 @@ Built on Laravel 10 and Laravel Sanctum package
 - Update the env file with the necessary database connection credentials
 - Update the app url in the `.env` file
 - Run the commands `php artisan migrate` and `php artisan db:seed`
-- Import the post man collection into your own Postman application
+- Import the post man collection and environment in the `postman` directory into your own Postman application
 - Before using any endpoint, execute the CSRF Token endpoint
