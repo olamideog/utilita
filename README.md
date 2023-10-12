@@ -7,7 +7,7 @@ Built on Laravel 10 and Laravel Sanctum package
 - Copy the `env.example` file to `.env`
 - Run the command `composer install`
 - Run the command php artisan key:generate
-- Create the database utilita
+- Create the database `utilita`
 - Update the env file with the necessary database connection credentials
 - Update the app url in the `.env` file
 - Run the commands `php artisan migrate` and `php artisan db:seed`
