@@ -16,6 +16,7 @@ return new class extends Migration
             $table->bigInteger('meter_id');
             $table->decimal('reading', 10, 2);
             $table->timestamp('read_at');
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }

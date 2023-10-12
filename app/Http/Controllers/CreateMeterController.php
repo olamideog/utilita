@@ -16,7 +16,7 @@ class CreateMeterController extends Controller
     {
         $meter = $request->user()->meter;
         if ($meter != null) {
-            return new EmptyResource(new EmptyModel('Meter Already exist', 'METER_CONFLICT', Response::HTTP_CONFLICT));
+            return new EmptyResource(new EmptyModel('Meter Already Exist For User', 'USER_METER_CONFLICT', Response::HTTP_CONFLICT));
         }
         $meter = new Meter();
         $meter['user_id'] = $request->user()->id;

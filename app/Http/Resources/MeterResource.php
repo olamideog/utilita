@@ -19,6 +19,7 @@ class MeterResource extends JsonResource
             'number' => $this->number,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
+            'readings' => MeterReadingResource::collection($this->readings->latest(10)),
         ];
     }
 }

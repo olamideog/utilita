@@ -14,7 +14,7 @@ class GetMeterController extends Controller
     {
         $meter = $request->user()->meter;
         if ($meter == null) {
-            return new EmptyResource(new EmptyModel('Meter Not Found', 'METER_NOT_FOUND'));
+            return new EmptyResource(new EmptyModel('User Meter Not Found', 'USER_METER_NOT_FOUND'));
         }
 
         return new MeterResource($meter);

@@ -15,7 +15,6 @@ class MeterReadingResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'meter' => new MeterResource($this->meter),
             'id' => $this->id,
             'reading' => $this->reading,
             'read_at' => $this->read_at,

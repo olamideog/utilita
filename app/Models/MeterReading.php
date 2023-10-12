@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\ReconciliationStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -25,8 +26,19 @@ class MeterReading extends Model
         'meter_id',
         'reading',
         'read_at',
+        'status',
         'created_at',
         'updated_at',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'read_at' => 'datetime',
+        'status' => ReconciliationStatus::class,
     ];
 
     public function meter()

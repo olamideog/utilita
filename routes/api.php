@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CreateMeterController;
+use App\Http\Controllers\CreateMeterReadingController;
 use App\Http\Controllers\GetEnergyPricesController;
 use App\Http\Controllers\GetMeterController;
 use App\Http\Controllers\GetMeterReadingsController;
@@ -34,7 +35,7 @@ Route::name('user.')->group(function () {
     Route::middleware('auth:sanctum')->group(function () {
         Route::post('/meter', CreateMeterController::class)->name('meter.create');
         Route::get('/meter', GetMeterController::class)->name('meter.get');
-        // Route::post('/meter/readings', CreateMeterReadingController::class)->name('meter.read');
+        Route::post('/meter/readings', CreateMeterReadingController::class)->name('meter.read');
         Route::get('/meter/readings', GetMeterReadingsController::class)->name('meter.readings');
         Route::post('/logout', LogoutController::class)->name('logout');
     });
