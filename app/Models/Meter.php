@@ -39,4 +39,9 @@ class Meter extends Model
     {
         return $this->hasMany(MeterReading::class);
     }
+
+    public function bills()
+    {
+        return $this->hasMany(Bills::class);
+    }
 }

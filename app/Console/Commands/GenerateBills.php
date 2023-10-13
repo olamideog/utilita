@@ -6,10 +6,8 @@ use App\Enums\PaymentStatus;
 use App\Enums\ReconciliationStatus;
 use App\Models\Bill;
 use App\Models\BillItem;
-use App\Models\EnergyPrice;
 use App\Models\User;
 use Illuminate\Console\Command;
-use Illuminate\Database\Eloquent\Collection;
 
 class GenerateBills extends Command
 {
