@@ -43,18 +43,24 @@ class GenerateBills extends Command
                 $bill->save();
 
                 $total = 0;
+                $usage = 0;
 
                 foreach ($readings as $reading) {
                     $amount = $reading->rate * $reading->reading;
+                    $total += $amount;
+                    $usage += $reading->reading;
                     BillItem::create([
                         'bill_id' => $bill->id,
                         'meter_reading_id' => $reading->id,
                         'amount' => $amount,
                     ]);
-                    $total += $amount;
+
+                    $reading->status = ReconciliationStatus::RESOLVED;
+                    $reading->save();
                 }
 
                 $bill['total'] = $total;
+                $bill['usage'] = $usage;
                 $bill->save();
             }
         }
