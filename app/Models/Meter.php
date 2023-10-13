@@ -37,11 +37,11 @@ class Meter extends Model
 
     public function readings()
     {
-        return $this->hasMany(MeterReading::class);
+        return $this->hasMany(MeterReading::class)->orderBy('read_at', 'DESC');
     }
 
     public function bills()
     {
-        return $this->hasMany(Bills::class);
+        return $this->hasMany(Bill::class);
     }
 }

@@ -29,15 +29,6 @@ class BillItem extends Model
         'updated_at',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'status' => PaymentStatus::class,
-    ];
-
     public function bill()
     {
         return $this->belongsTo(Bill::class);

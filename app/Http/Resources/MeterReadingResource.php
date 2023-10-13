@@ -17,7 +17,9 @@ class MeterReadingResource extends JsonResource
         return [
             'id' => $this->id,
             'reading' => $this->reading,
+            'usage' => $this->usage,
             'read_at' => $this->read_at,
+            'status' => $this->status->title()
         ];
     }
 }

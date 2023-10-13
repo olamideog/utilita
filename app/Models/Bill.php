@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\PaymentStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -40,7 +41,7 @@ class Bill extends Model
 
     public function meter()
     {
-        return $this->hasOne(Meter::class);
+        return $this->belongsTo(Meter::class);
     }
 
     public function items()

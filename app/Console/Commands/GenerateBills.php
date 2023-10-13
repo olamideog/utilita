@@ -16,7 +16,7 @@ class GenerateBills extends Command
      *
      * @var string
      */
-    protected $signature = 'app:generate-bills';
+    protected $signature = 'utilita:generate-bills';
 
     /**
      * The console command description.
@@ -61,6 +61,7 @@ class GenerateBills extends Command
                 $bill['usage'] = $usage;
                 $bill->save();
             }
+            $this->info('Bill Generated for '.$user->first_name.' '.$user->last_name);
         }
     }
 }

@@ -17,7 +17,7 @@ class BillResource extends JsonResource
         return [
             'id' => $this->id,
             'usage' => $this->usage,
-            'total' => $this->total,
+            'total' => '£'.$this->total,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'meter' => new MeterResource($this->meter),

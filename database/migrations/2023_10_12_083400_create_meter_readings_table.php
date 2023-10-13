@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('meter_id');
             $table->decimal('reading', 10, 2);
+            $table->decimal('usage', 10, 2);
             $table->timestamp('read_at');
             $table->decimal('rate', 10, 2);
             $table->tinyInteger('status')->default(0);

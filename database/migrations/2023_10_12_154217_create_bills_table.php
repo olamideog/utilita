@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('bills', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('meter_id');
-            $table->decimal('usage', 10, 2);
-            $table->decimal('total', 10, 2);
+            $table->decimal('usage', 10, 2)->default('0.00');
+            $table->decimal('total', 10, 2)->default('0.00');
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });

@@ -17,7 +17,7 @@ class RateResource extends JsonResource
         return [
             'name' => $this->name,
             'code' => $this->code,
-            'rate' => $this->rate,
+            'rate' => '£'.$this->rate,
             'between' => $this->start_time.' - '.$this->end_time,
         ];
     }

@@ -26,6 +26,7 @@ class MeterReading extends Model
         'meter_id',
         'rate',
         'reading',
+        'usage',
         'read_at',
         'status',
         'created_at',

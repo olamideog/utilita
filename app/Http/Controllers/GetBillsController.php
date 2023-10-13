@@ -23,6 +23,6 @@ class GetBillsController extends Controller
             return new EmptyResource(new EmptyModel('Meter Bill Not Found', 'METER_BILL_NOT_FOUND'));
         }
 
-        return new BillResource($bills);
+        return BillResource::collection($bills);
     }
 }
