@@ -43,7 +43,7 @@
 			"response": []
 		},
 		{
-			"name": "Get Energy Prices",
+			"name": "Get Energy Rates",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true,
 				"disabledSystemHeaders": {
@@ -74,13 +74,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/api/energy-prices/",
+					"raw": "{{url}}/api/rates/",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"api",
-						"energy-prices",
+						"rates",
 						""
 					]
 				}
@@ -289,6 +289,170 @@
 						"api",
 						"meter",
 						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Meter Reading",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{xsrf-token}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"reading\": \"100.14\",\r\n    \"read_at\": \"2023-10-13T11:19:16+00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/meter/readings",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"meter",
+						"readings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Meter Reading",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{xsrf-token}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/meter/readings",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"meter",
+						"readings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Meter Bills",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{xsrf-token}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/meter/bills",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"meter",
+						"bills"
 					]
 				}
 			},
