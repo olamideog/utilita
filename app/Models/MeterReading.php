@@ -24,6 +24,7 @@ class MeterReading extends Model
      */
     protected $fillable = [
         'meter_id',
+        'rate',
         'reading',
         'read_at',
         'status',

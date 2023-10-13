@@ -7,9 +7,9 @@ use App\Enums\ReconciliationStatus;
 use App\Models\Bill;
 use App\Models\BillItem;
 use App\Models\EnergyPrice;
-use App\Models\MeterReading;
 use App\Models\User;
 use Illuminate\Console\Command;
+use Illuminate\Database\Eloquent\Collection;
 
 class GenerateBills extends Command
 {
@@ -33,12 +33,10 @@ class GenerateBills extends Command
     public function handle()
     {
         $users = User::whereHas('meter')->get();
-        foreach($users as $user)
-        {
+        foreach ($users as $user) {
             $meter = $user->meter;
             $readings = $meter->readings()->where('status', ReconciliationStatus::PENDING)->get();
-            if(($readings != null) && ($readings->count() > 0))
-            {
+            if (($readings != null) && ($readings->count() > 0)) {
                 $bill = new Bill();
                 $bill['meter_id'] = $meter->id;
                 $bill['status'] = PaymentStatus::DEFAULT->value;
@@ -46,23 +44,19 @@ class GenerateBills extends Command
 
                 $total = 0;
 
-                foreach($readings as $reading){
-                    $amount = $this->calculateAmount($reading, $reading);
-                    $billItem = BillItem::create([
+                foreach ($readings as $reading) {
+                    $amount = $reading->rate * $reading->reading;
+                    BillItem::create([
                         'bill_id' => $bill->id,
                         'meter_reading_id' => $reading->id,
-                        'amount' => $amount
+                        'amount' => $amount,
                     ]);
                     $total += $amount;
                 }
 
                 $bill['total'] = $total;
+                $bill->save();
             }
         }
-    }
-
-    private function calculateAmount(EnergyPrice $price, MeterReading $reading): float
-    {
-        return 0.00;
     }
 }

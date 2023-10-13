@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\CreateMeterController;
 use App\Http\Controllers\CreateMeterReadingController;
-use App\Http\Controllers\GetEnergyPricesController;
 use App\Http\Controllers\GetMeterController;
 use App\Http\Controllers\GetMeterReadingsController;
+use App\Http\Controllers\GetRatesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
@@ -30,7 +30,7 @@ Route::name('user.')->group(function () {
     Route::post('/register', RegisterController::class)->name('register');
     Route::post('/login', LoginController::class)->name('login');
 
-    Route::get('/energy-prices', GetEnergyPricesController::class)->name('prices.get');
+    Route::get('/rates', GetRatesController::class)->name('rates.get');
 
     Route::middleware('auth:sanctum')->group(function () {
         Route::post('/meter', CreateMeterController::class)->name('meter.create');

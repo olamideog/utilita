@@ -43,7 +43,7 @@ class Bill extends Model
         return $this->hasOne(Meter::class);
     }
 
-    public function readings()
+    public function items()
     {
         return $this->hasMany(BillItem::class);
     }

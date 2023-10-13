@@ -15,7 +15,7 @@ class CreateMeterReadingRequest extends BaseRequest
     {
         return [
             'reading' => ['required', 'decimal:2'],
-            'read_at' => ['required', 'date_format:'.DateTimeInterface::RFC3339]
+            'read_at' => ['required', 'date_format:'.DateTimeInterface::RFC3339],
         ];
     }
 }

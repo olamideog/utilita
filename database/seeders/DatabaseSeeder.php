@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('energy_prices')->insert([
+        DB::table('rates')->insert([
             'name' => 'Electricity',
             'code' => 'ELC',
             'rate' => '1.50',
@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             'end_time' => '23:59:59',
         ]);
 
-        DB::table('energy_prices')->insert([
+        DB::table('rates')->insert([
             'name' => 'Electricity',
             'code' => 'ELC',
             'rate' => '1.00',

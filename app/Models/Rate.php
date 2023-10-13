@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class EnergyPrice extends Model
+class Rate extends Model
 {
     use HasFactory;
 
@@ -14,7 +14,7 @@ class EnergyPrice extends Model
      *
      * @var string
      */
-    protected $table = 'energy_prices';
+    protected $table = 'rates';
 
     /**
      * The attributes that are mass assignable.
